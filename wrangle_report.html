@@ -14271,16 +14271,17 @@ a.anchor-link {
 <li><code>df_archive</code> table: some reply tweets are invalid</li>
 <li><code>df_archive</code> table: not all <code>names</code> are correct</li>
 <li><code>df_archive</code> table: some ratings have denominators over than 10 and are not ratings. </li>
-<li>number of rows for all three tables don't match each other</li>
+<li>empty values are passed as string 'None'</li>
 </ul>
 <h3 id="Tidiness">Tidiness<a class="anchor-link" href="#Tidiness">&#182;</a></h3><ul>
 <li><code>df_archive</code> table: there's 4 different columns for the same variable of dog stage.</li>
+<li><code>df_predictions</code> table: unnecessary prediction columns</li>
 <li><code>df_archive</code> and <code>df_additional</code>: lots of meaningless columns that make it hard to read</li>
-<li>there's three tables when there should be two: one table with info from <code>df_archive</code> and <code>df_additional</code>, and <code>df_predictions</code></li>
+<li>there's three tables for the same observational unit. </li>
 </ul>
 <p>As noted before, from the quality issues, several of these were due to incorrect extraction of information from the text values, so we fixed those through new extraction, made easier by regular expressions. Other cleaning acts included dropping  incomplete rows, changing datatypes and replacing inconsistent formatting.
-For tidiness, we built a master archive which contained relevant information to the tweets, created by merging the original archive and the additional data from the API, and left the prediction tables on its own. We also dropped columns which didn't provide any valuable information, and we consolidated the information of four columns for occurence of dog stage mention into just 1 column.
-The clean and tidy dataframes were saved as new .csv files to be used again in the future.</p>
+For tidiness, we built a master archive which contained relevant information to the tweets, created by merging all three tables with relevant columns. We also dropped columns which didn't provide any valuable information, and we consolidated the information of four columns for occurence of dog stage mention into just 1 column.
+The clean and tidy dataframe was saved as a new .csv filee to be used again in the future.</p>
 <p>This data was later analyzed and a report was written with the insights of this analysis.</p>
 
 </div>
